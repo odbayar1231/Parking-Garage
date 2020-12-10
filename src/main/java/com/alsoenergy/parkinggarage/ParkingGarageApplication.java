@@ -35,8 +35,6 @@ public class ParkingGarageApplication implements CommandLineRunner {
         };
         parkingGarageService.createParkingGarage(2, level2DPlan);
 
-//        printLevels();
-
         Vehicle motorCycle1 = new MotorCycle("MOT111");
         Vehicle bus1 = new Bus("BUS111");
         Vehicle bus2 = new Bus("BUS222");
@@ -79,7 +77,6 @@ public class ParkingGarageApplication implements CommandLineRunner {
             List<Spot> spots = level.getSpots();
             for(int j = 0; j < spots.size(); j++){
                 System.out.print(spots.get(j));
-                //System.out.println(level.getColumn());
                 if(spots.get(j).getSpotId().charAt(1) ==  level.getColumn()-1 + '0'){
                     System.out.println();
                 }
