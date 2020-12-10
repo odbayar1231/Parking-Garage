@@ -49,14 +49,16 @@ public class ParkingGarageApplication implements CommandLineRunner {
         parkingService.parkInVehicle(bus1);
         parkingService.parkInVehicle(bus2);
         parkingService.parkInVehicle(bus3);
-        printLevels();
+        //printLevels();
+        printLevels2();
 
         parkingService.parkOutVehicle(motorCycle1);
         parkingService.parkOutVehicle(bus2);
         //parkingService.parkOutVehicle(null);
         System.out.println("\n------------------------------------------------------");
         System.out.println("Parking out: 1 motorcycle and bus2.");
-        printLevels();
+        //printLevels();
+        printLevels2();
 
     }
 
@@ -66,6 +68,24 @@ public class ParkingGarageApplication implements CommandLineRunner {
             System.out.println("level = " + level);
         });
         System.out.println("");
+    }
+
+    private void printLevels2(){
+        System.out.println("\n------------------------------------------------------");
+        List<Level> levels = levelRepository.getLevels();
+
+        for(Level level : levels){
+            System.out.println("level : " + level.getFloorNumber());
+            List<Spot> spots = level.getSpots();
+            for(int j = 0; j < spots.size(); j++){
+                System.out.print(spots.get(j));
+                //System.out.println(level.getColumn());
+                if(spots.get(j).getSpotId().charAt(1) ==  level.getColumn()-1 + '0'){
+                    System.out.println();
+                }
+            }
+
+        }
     }
 
 }

@@ -66,6 +66,8 @@ public class ParkingGarageServiceImpl implements ParkingGarageService {
                 Level nLevel =Level.builder()
                         .floorNumber(l)
                         .spots(cloneSpots(spots))
+                        .row(level2DPlan.length)
+                        .column(level2DPlan[0].length)
                         .build();
                 levels.add(nLevel);
         }
